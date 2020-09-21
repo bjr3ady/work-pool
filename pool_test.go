@@ -6,6 +6,7 @@ import (
 	"os"
 	"runtime"
 	"strconv"
+	"testing"
 	"time"
 )
 
@@ -22,7 +23,7 @@ func (workPool *MyWork) DoWork() {
 	//panic("test")
 }
 
-func main() {
+func TestAPool(t *testing.T) {
 	runtime.GOMAXPROCS(runtime.NumCPU())
 	workPool := New(runtime.NumCPU()*3, 10)
 	shutdown := false //for testing
@@ -43,10 +44,10 @@ func main() {
 			}
 		}
 	}()
-	fmt.Println("Hit any key to exit")
+	t.Log("Hit any key to exit")
 	reader := bufio.NewReader(os.Stdin)
 	reader.ReadString('\n')
 	shutdown = true
-	fmt.Println("Shutting Down\n")
+	t.Log("Shutting Down\n")
 	workPool.Shutdown("name_routine")
 }

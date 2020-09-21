@@ -1,3 +1,3 @@
 module github.com/bjr3ady/work-pool
 
-go 1.15
+go 1.13

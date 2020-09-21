@@ -38,7 +38,7 @@ type PoolWorker interface {
 
 // init is called when the system is inited.
 func init() {
-	log.SetPrefix("TRACE: ")
+	log.SetPrefix("TRACE-POOL: ")
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 }
 
